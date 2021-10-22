@@ -8,6 +8,7 @@ public class Employees {
     private double salary;
 
     public String getName() {
+        System.out.println("Employee name is " + name);
         return name;
     }
 
@@ -17,5 +18,10 @@ public class Employees {
 
     public double getSalary() {
         return salary;
+    }
+
+    public void printTax() {
+        double ownTax = salary * 0.99;
+        System.out.println("The tax of " + name + " is " + ownTax);
     }
 }
