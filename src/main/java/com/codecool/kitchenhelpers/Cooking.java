@@ -2,7 +2,7 @@ package com.codecool.kitchenhelpers;
 
 interface Cooking {
 
-    void cook();
+    void cooking();
 
     void shooting(String message);
 }

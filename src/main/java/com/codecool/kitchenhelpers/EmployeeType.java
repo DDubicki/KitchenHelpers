@@ -1,7 +1,7 @@
 package com.codecool.kitchenhelpers;
 
 public enum EmployeeType {
-    Chefs,
-    Cooks,
-    KitchenHelpers
+    CHEF,
+    COOK,
+    KITCHEN_HELPER
 }

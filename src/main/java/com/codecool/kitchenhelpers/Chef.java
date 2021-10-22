@@ -9,7 +9,7 @@ public class Chef extends Employees implements Cooking {
     }
 
     @Override
-    public void cook() {
+    public void cooking() {
 
     }
 

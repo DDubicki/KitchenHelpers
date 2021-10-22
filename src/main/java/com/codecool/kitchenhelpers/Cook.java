@@ -2,14 +2,14 @@ package com.codecool.kitchenhelpers;
 
 import java.time.LocalDate;
 
-public class Cooks extends Employees implements Cooking {
+public class Cook extends Employees implements Cooking {
 
-    public Cooks(String name, LocalDate birthDate, double salary) {
+    public Cook(String name, LocalDate birthDate, double salary) {
         super(name, birthDate, salary);
     }
 
     @Override
-    public void cook() {
+    public void cooking() {
 
     }
 
