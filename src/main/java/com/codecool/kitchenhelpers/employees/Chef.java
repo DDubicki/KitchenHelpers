@@ -1,13 +1,14 @@
 package com.codecool.kitchenhelpers.employees;
 
 import com.codecool.kitchenhelpers.Ingredient;
+import com.codecool.kitchenhelpers.RandomHelper;
 
 import java.time.LocalDate;
 
 public class Chef extends Employee implements Cooking {
 
     public Chef(String name, LocalDate birthDate, double salary) {
-        super(name, birthDate, salary);
+        super(name, birthDate, salary, RandomHelper.getRandomBoolean());
     }
 
     @Override

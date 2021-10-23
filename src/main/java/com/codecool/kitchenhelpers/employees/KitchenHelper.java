@@ -12,7 +12,7 @@ public class KitchenHelper extends Employee {
     private final Map<Ingredient, Integer> ingredients;
 
     public KitchenHelper(String name, LocalDate birthDate, double salary) {
-        super(name, birthDate, salary);
+        super(name, birthDate, salary, RandomHelper.getRandomBoolean());
         ingredients = new HashMap<>();
         ingredients.put(Ingredient.MEAT, RandomHelper.nextInt(4));
         ingredients.put(Ingredient.POTATO, RandomHelper.nextInt(4));
