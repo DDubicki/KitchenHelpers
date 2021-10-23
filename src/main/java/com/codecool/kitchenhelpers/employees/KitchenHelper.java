@@ -1,6 +1,6 @@
 package com.codecool.kitchenhelpers.employees;
 
-import com.codecool.kitchenhelpers.Employees;
+import com.codecool.kitchenhelpers.Employee;
 import com.codecool.kitchenhelpers.Ingredient;
 import com.codecool.kitchenhelpers.RandomHelper;
 
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class KitchenHelper extends Employees {
+public class KitchenHelper extends Employee {
     private final Map<Ingredient, Integer> ingredients;
 
     public KitchenHelper(String name, LocalDate birthDate, double salary) {

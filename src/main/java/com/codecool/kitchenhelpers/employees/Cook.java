@@ -1,10 +1,10 @@
 package com.codecool.kitchenhelpers.employees;
 
-import com.codecool.kitchenhelpers.Employees;
+import com.codecool.kitchenhelpers.Employee;
 
 import java.time.LocalDate;
 
-public class Cook extends Employees implements Cooking {
+public class Cook extends Employee implements Cooking {
 
     public Cook(String name, LocalDate birthDate, double salary) {
         super(name, birthDate, salary);
