@@ -15,8 +15,6 @@ public class Main {
         if (ingredient.isPresent()) {
             Ingredient i = ingredient.get();
         }
-        ingredient.ifPresent(i -> {
-            System.out.println(i);
-        });
+        ingredient.ifPresent(System.out::println);
     }
 }

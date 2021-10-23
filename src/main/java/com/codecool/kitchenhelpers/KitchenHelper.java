@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public class KitchenHelper extends Employees {
-    private Map<Ingredient, Integer> ingredients;
+    private final Map<Ingredient, Integer> ingredients;
 
     public KitchenHelper(String name, LocalDate birthDate, double salary) {
         super(name, birthDate, salary);
