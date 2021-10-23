@@ -1,4 +1,4 @@
-package com.codecool.kitchenhelpers;
+package com.codecool.kitchenhelpers.employees;
 
 public enum EmployeeType {
     CHEF,

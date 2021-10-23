@@ -1,20 +1,19 @@
-package com.codecool.kitchenhelpers;
+package com.codecool.kitchenhelpers.employees;
 
 import java.time.LocalDate;
 
-public class Employees {
+public class Employee {
     private final String name;
     private final LocalDate birthDate;
     private final double salary;
 
-    public Employees(String name, LocalDate birthDate, double salary) {
+    public Employee(String name, LocalDate birthDate, double salary) {
         this.name = name;
         this.birthDate = birthDate;
         this.salary = salary;
     }
 
     public String getName() {
-        System.out.println("Employee name is " + name);
         return name;
     }
 
@@ -33,7 +32,7 @@ public class Employees {
 
     @Override
     public String toString() {
-        return "Employees{" +
+        return "Employee{" +
                 "name='" + name + '\'' +
                 ", BirthDate=" + birthDate +
                 ", salary=" + salary +
