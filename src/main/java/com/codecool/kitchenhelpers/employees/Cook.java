@@ -1,4 +1,6 @@
-package com.codecool.kitchenhelpers;
+package com.codecool.kitchenhelpers.employees;
+
+import com.codecool.kitchenhelpers.Employees;
 
 import java.time.LocalDate;
 

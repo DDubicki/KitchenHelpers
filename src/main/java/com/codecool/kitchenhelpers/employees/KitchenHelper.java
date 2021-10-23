@@ -1,4 +1,8 @@
-package com.codecool.kitchenhelpers;
+package com.codecool.kitchenhelpers.employees;
+
+import com.codecool.kitchenhelpers.Employees;
+import com.codecool.kitchenhelpers.Ingredient;
+import com.codecool.kitchenhelpers.RandomHelper;
 
 import java.time.LocalDate;
 import java.util.HashMap;
