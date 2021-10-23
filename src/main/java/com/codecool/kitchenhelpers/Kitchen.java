@@ -70,9 +70,13 @@ public class Kitchen {
         chef.cooking();
         chef.asking();
         for (Cook cook : cooks) {
-            cook.shooting();
-            cook.cooking();
+            if (cook.isHasKnife()) {
+                cook.shouting();
+                cook.cooking();
+            } else {
+                cook.shoutThatCantCook();
+            }
         }
-        chef.shooting();
+        chef.shouting();
     }
 }

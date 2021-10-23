@@ -17,9 +17,14 @@ public class Chef extends Employee implements Cooking {
     }
 
     @Override
-    public void shooting() {
+    public void shouting() {
         System.out.println(getName() + ": Work harder!!!\n");
         System.out.println("* * * * * * * * * * * * * * * * * *");
+    }
+
+    @Override
+    public void shoutThatCantCook() {
+        System.out.println(getName() + ": Today without me, I don't have knives.\n");
     }
 
     public Ingredient requireIngredient() {
