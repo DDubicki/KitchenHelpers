@@ -27,4 +27,8 @@ public class KitchenHelper extends Employee {
         }
         return Optional.empty();
     }
+
+    public void allOutYelling() {
+        System.out.println("We're all out, Chef");
+    }
 }

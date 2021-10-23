@@ -10,12 +10,12 @@ public class Cook extends Employee implements Cooking {
 
     @Override
     public void cooking() {
-        System.out.println("...cooks is cooking now.");
+        System.out.println("...cook is cooking.\n");
     }
 
     @Override
-    public void shooting(String message) {
-        System.out.println(message);
+    public void shooting() {
+        System.out.println("Cook " + getName() + ": I'm cooking right now, Chef\n");
     }
 
 }

@@ -12,17 +12,21 @@ public class Chef extends Employee implements Cooking {
 
     @Override
     public void cooking() {
-        System.out.println("...chef is cooking now.");
+        System.out.println("...chef is cooking now.\n");
     }
 
     @Override
-    public void shooting(String message) {
-        System.out.println(message);
+    public void shooting() {
+        System.out.println(getName() + ": Work harder!!!\n");
     }
 
-    public Ingredient requireIngredients() {
+    public Ingredient requireIngredient() {
         Ingredient ingredient = Ingredient.getRandomIngredient();
-        System.out.println(getName() + ": I need " + ingredient);
+        System.out.println(getName() + ": I need " + ingredient + "! NOW!!!\n");
         return ingredient;
+    }
+
+    public void asking() {
+        System.out.println(getName() + ": Am I the only one who work here?");
     }
 }

@@ -14,7 +14,6 @@ public class Employee {
     }
 
     public String getName() {
-        System.out.println("Employee name is " + name);
         return name;
     }
 

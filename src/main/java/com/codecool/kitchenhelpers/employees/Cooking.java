@@ -4,5 +4,5 @@ interface Cooking {
 
     void cooking();
 
-    void shooting(String message);
+    void shooting();
 }

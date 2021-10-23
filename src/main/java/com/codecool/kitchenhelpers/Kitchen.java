@@ -11,13 +11,11 @@ public class Kitchen {
     private final double COOK_SALARY = 700.0;
     private final double HELPER_SALARY = 500.0;
 
-    private final Map<EmployeeType, List<Employee>> kitchenEmployees;
     private Chef chef;
     private List<Cook> cooks;
     private List<KitchenHelper> kitchenHelpers;
 
     public Kitchen(int cooksNumber, int helpersNumber) {
-        this.kitchenEmployees = new HashMap<>();
         generateChef();
         generateCooks(cooksNumber);
         generateHelpers(helpersNumber);
@@ -44,22 +42,22 @@ public class Kitchen {
     }
 
     protected void cookFood() {
-        chef.cooking();
-        chef.shooting("Work harder!!!");
-        Ingredient ingredient = chef.requireIngredients();
+        Ingredient ingredient = chef.requireIngredient();
+        for (KitchenHelper helper : kitchenHelpers) {
+            Optional<Ingredient> requiredIngredient = helper.giveIngredient(ingredient);
+            if (requiredIngredient.isPresent()) {
+                System.out.println(helper.getName() + ": Here is " + ingredient.name() + ", Chef.\n");
+                chef.cooking();
+            } else {
+                helper.allOutYelling();
+            }
+        }
+        chef.asking();
+        for (Cook cook : cooks) {
+            cook.shooting();
+            cook.cooking();
+        }
+        chef.shooting();
 
-        cooks.get(0).cooking();
-        Optional<Ingredient> optionalIngredient = kitchenHelpers.get(0).giveIngredient(ingredient);
-
-
-        //        Optional<Ingredient> ingredient = helper.giveIngredient(Ingredient.MEAT);
-//        if (ingredient.isPresent()) {
-//            Ingredient i = ingredient.get();
-//        }
-//        ingredient.ifPresent(System.out::println);
-    }
-
-    public Map<EmployeeType, List<Employee>> getKitchenEmployees() {
-        return kitchenEmployees;
     }
 }

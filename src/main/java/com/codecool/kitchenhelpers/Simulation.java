@@ -1,7 +1,5 @@
 package com.codecool.kitchenhelpers;
 
-import com.codecool.kitchenhelpers.employees.EmployeeType;
-
 import java.util.Scanner;
 
 public class Simulation {
@@ -16,6 +14,7 @@ public class Simulation {
 
     public void runKitchen(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("What we will do? We will cook fuc*** delicious food! Sit down and wait!\n");
         do {
             kitchen.cookFood();
         } while (!scanner.nextLine().equalsIgnoreCase("q"));
