@@ -29,6 +29,10 @@ public class KitchenHelper extends Employee {
     }
 
     public void allOutYelling() {
-        System.out.println("We're all out, Chef");
+        System.out.println("Kitchen helper " + getName() + ": We're all out, Chef.");
+    }
+
+    public Integer checkQuantityOfIngredient(Ingredient ingredient) {
+        return ingredients.getOrDefault(ingredient, 0);
     }
 }

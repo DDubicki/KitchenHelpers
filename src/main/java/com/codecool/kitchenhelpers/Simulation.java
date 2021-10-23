@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Simulation {
 
     int COOKS_NUMBER = 3;
-    int HELPERS_NUMBER = 7;
+    int HELPERS_NUMBER = 3;
     private final Kitchen kitchen;
 
     public Simulation() {

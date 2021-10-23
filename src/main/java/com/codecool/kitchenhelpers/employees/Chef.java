@@ -18,6 +18,7 @@ public class Chef extends Employee implements Cooking {
     @Override
     public void shooting() {
         System.out.println(getName() + ": Work harder!!!\n");
+        System.out.println("* * * * * * * * * * * * * * * * * *");
     }
 
     public Ingredient requireIngredient() {
@@ -27,6 +28,6 @@ public class Chef extends Employee implements Cooking {
     }
 
     public void asking() {
-        System.out.println(getName() + ": Am I the only one who work here?");
+        System.out.println(getName() + ": Am I the only one who work here?\n");
     }
 }

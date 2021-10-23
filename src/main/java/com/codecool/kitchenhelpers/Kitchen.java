@@ -43,21 +43,36 @@ public class Kitchen {
 
     protected void cookFood() {
         Ingredient ingredient = chef.requireIngredient();
-        for (KitchenHelper helper : kitchenHelpers) {
-            Optional<Ingredient> requiredIngredient = helper.giveIngredient(ingredient);
-            if (requiredIngredient.isPresent()) {
-                System.out.println(helper.getName() + ": Here is " + ingredient.name() + ", Chef.\n");
-                chef.cooking();
-            } else {
+        KitchenHelper helperWithIngredient = checkIngredients(ingredient);
+        if (helperWithIngredient == null){
+            for (KitchenHelper helper : kitchenHelpers) {
                 helper.allOutYelling();
             }
+            System.out.println(chef.getName() + ": I shut the kitchen down");
+        } else {
+            getIngredientAndCook(ingredient, helperWithIngredient);
         }
+    }
+
+    private KitchenHelper checkIngredients(Ingredient ingredient) {
+        for (KitchenHelper helper : kitchenHelpers) {
+            Integer quantity = helper.checkQuantityOfIngredient(ingredient);
+            if (quantity > 0) {
+                return helper;
+            }
+        }
+        return null;
+    }
+
+    private void getIngredientAndCook(Ingredient ingredient, KitchenHelper helperWithIngredient) {
+        helperWithIngredient.giveIngredient(ingredient);
+        System.out.println("Kitchen helper " + helperWithIngredient.getName() + ": Here is " + ingredient.name() + ", Chef.\n");
+        chef.cooking();
         chef.asking();
         for (Cook cook : cooks) {
             cook.shooting();
             cook.cooking();
         }
         chef.shooting();
-
     }
 }
