@@ -5,12 +5,5 @@ public class Main {
 
         Simulation simulation = new Simulation();
         simulation.runKitchen();
-
-
-//        Optional<Ingredient> ingredient = helper.giveIngredient(Ingredient.MEAT);
-//        if (ingredient.isPresent()) {
-//            Ingredient i = ingredient.get();
-//        }
-//        ingredient.ifPresent(System.out::println);
     }
 }

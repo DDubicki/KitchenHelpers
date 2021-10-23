@@ -1,6 +1,5 @@
 package com.codecool.kitchenhelpers.employees;
 
-import com.codecool.kitchenhelpers.Employee;
 import com.codecool.kitchenhelpers.Ingredient;
 import com.codecool.kitchenhelpers.RandomHelper;
 

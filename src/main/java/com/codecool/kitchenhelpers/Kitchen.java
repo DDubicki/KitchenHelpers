@@ -1,15 +1,9 @@
 package com.codecool.kitchenhelpers;
 
-import com.codecool.kitchenhelpers.employees.Chef;
-import com.codecool.kitchenhelpers.employees.Cook;
-import com.codecool.kitchenhelpers.employees.KitchenHelper;
-import com.codecool.kitchenhelpers.employees.Names;
+import com.codecool.kitchenhelpers.employees.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Kitchen {
 
@@ -18,6 +12,9 @@ public class Kitchen {
     private final double HELPER_SALARY = 500.0;
 
     private final Map<EmployeeType, List<Employee>> kitchenEmployees;
+    private Chef chef;
+    private List<Cook> cooks;
+    private List<KitchenHelper> kitchenHelpers;
 
     public Kitchen(int cooksNumber, int helpersNumber) {
         this.kitchenEmployees = new HashMap<>();
@@ -27,28 +24,39 @@ public class Kitchen {
     }
 
     private void generateChef() {
-        List<Employee> chefList = new ArrayList<>();
-        Chef chef = new Chef("Gordon Ramsey", LocalDate.of(1985, 10, 25), CHEF_SALARY);
-        chefList.add(chef);
-        kitchenEmployees.put(EmployeeType.CHEF, chefList);
+        chef = new Chef("Gordon Ramsey", LocalDate.of(1985, 10, 25), CHEF_SALARY);
     }
 
     private void generateCooks(int number) {
-        List<Employee> cooks = new ArrayList<>();
+        cooks = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             Cook cook = new Cook(Names.getRandomName(), LocalDate.of(1990, 3, 10), COOK_SALARY);
             cooks.add(cook);
         }
-        kitchenEmployees.put(EmployeeType.COOK, cooks);
     }
 
     private void generateHelpers(int number) {
-        List<Employee> kitchenHelpers = new ArrayList<>();
+        kitchenHelpers = new ArrayList<>();
         for (int i = 0; i < number; i++) {
-            KitchenHelper kitchenHelper = new KitchenHelper(Names.getRandomName(), LocalDate.of(1990, 3, 10), HELPER_SALARY);
+            KitchenHelper kitchenHelper = new KitchenHelper(Names.getRandomName(), LocalDate.of(1995, 9, 16), HELPER_SALARY);
             kitchenHelpers.add(kitchenHelper);
         }
-        kitchenEmployees.put(EmployeeType.COOK, kitchenHelpers);
+    }
+
+    protected void cookFood() {
+        chef.cooking();
+        chef.shooting("Work harder!!!");
+        Ingredient ingredient = chef.requireIngredients();
+
+        cooks.get(0).cooking();
+        Optional<Ingredient> optionalIngredient = kitchenHelpers.get(0).giveIngredient(ingredient);
+
+
+        //        Optional<Ingredient> ingredient = helper.giveIngredient(Ingredient.MEAT);
+//        if (ingredient.isPresent()) {
+//            Ingredient i = ingredient.get();
+//        }
+//        ingredient.ifPresent(System.out::println);
     }
 
     public Map<EmployeeType, List<Employee>> getKitchenEmployees() {

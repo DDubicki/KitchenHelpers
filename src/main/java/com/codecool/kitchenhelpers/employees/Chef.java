@@ -1,6 +1,5 @@
 package com.codecool.kitchenhelpers.employees;
 
-import com.codecool.kitchenhelpers.Employee;
 import com.codecool.kitchenhelpers.Ingredient;
 
 import java.time.LocalDate;
@@ -14,7 +13,6 @@ public class Chef extends Employee implements Cooking {
     @Override
     public void cooking() {
         System.out.println("...chef is cooking now.");
-        requireIngredients();
     }
 
     @Override
@@ -22,8 +20,9 @@ public class Chef extends Employee implements Cooking {
         System.out.println(message);
     }
 
-    private void requireIngredients() {
+    public Ingredient requireIngredients() {
         Ingredient ingredient = Ingredient.getRandomIngredient();
         System.out.println(getName() + ": I need " + ingredient);
+        return ingredient;
     }
 }

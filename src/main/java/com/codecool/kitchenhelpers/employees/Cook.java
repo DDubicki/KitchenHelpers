@@ -1,7 +1,5 @@
 package com.codecool.kitchenhelpers.employees;
 
-import com.codecool.kitchenhelpers.Employee;
-
 import java.time.LocalDate;
 
 public class Cook extends Employee implements Cooking {
@@ -12,7 +10,7 @@ public class Cook extends Employee implements Cooking {
 
     @Override
     public void cooking() {
-
+        System.out.println("...cooks is cooking now.");
     }
 
     @Override
