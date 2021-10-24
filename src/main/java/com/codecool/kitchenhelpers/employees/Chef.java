@@ -1,13 +1,14 @@
 package com.codecool.kitchenhelpers.employees;
 
 import com.codecool.kitchenhelpers.Ingredient;
+import com.codecool.kitchenhelpers.RandomHelper;
 
 import java.time.LocalDate;
 
 public class Chef extends Employee implements Cooking {
 
     public Chef(String name, LocalDate birthDate, double salary) {
-        super(name, birthDate, salary);
+        super(name, birthDate, salary, RandomHelper.getRandomBoolean());
     }
 
     @Override
@@ -16,9 +17,14 @@ public class Chef extends Employee implements Cooking {
     }
 
     @Override
-    public void shooting() {
+    public void shouting() {
         System.out.println(getName() + ": Work harder!!!\n");
         System.out.println("* * * * * * * * * * * * * * * * * *");
+    }
+
+    @Override
+    public void shoutThatCantCook() {
+        System.out.println(getName() + ": I don't have knives.\n");
     }
 
     public Ingredient requireIngredient() {
@@ -29,5 +35,9 @@ public class Chef extends Employee implements Cooking {
 
     public void asking() {
         System.out.println(getName() + ": Am I the only one who work here?\n");
+    }
+
+    public void shoutDownTheKitchen() {
+        System.out.println(getName() + ": I shut down the kitchen");
     }
 }

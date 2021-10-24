@@ -6,11 +6,13 @@ public class Employee {
     private final String name;
     private final LocalDate birthDate;
     private final double salary;
+    private final boolean hasKnife;
 
-    public Employee(String name, LocalDate birthDate, double salary) {
+    public Employee(String name, LocalDate birthDate, double salary, boolean hasKnife) {
         this.name = name;
         this.birthDate = birthDate;
         this.salary = salary;
+        this.hasKnife = hasKnife;
     }
 
     public String getName() {
@@ -28,6 +30,10 @@ public class Employee {
 
     public double getSalary() {
         return salary;
+    }
+
+    public boolean isHasKnife() {
+        return hasKnife;
     }
 
     @Override

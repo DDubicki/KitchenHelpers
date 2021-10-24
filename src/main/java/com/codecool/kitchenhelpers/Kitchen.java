@@ -42,37 +42,48 @@ public class Kitchen {
     }
 
     protected void cookFood() {
-        Ingredient ingredient = chef.requireIngredient();
-        KitchenHelper helperWithIngredient = checkIngredients(ingredient);
-        if (helperWithIngredient == null){
-            for (KitchenHelper helper : kitchenHelpers) {
-                helper.allOutYelling();
-            }
-            System.out.println(chef.getName() + ": I shut the kitchen down");
+        if (chef.isHasKnife()) {
+            produceMeals();
         } else {
-            getIngredientAndCook(ingredient, helperWithIngredient);
+            chef.shoutThatCantCook();
+            chef.shoutDownTheKitchen();
         }
     }
 
-    private KitchenHelper checkIngredients(Ingredient ingredient) {
+    private void produceMeals() {
+        Ingredient ingredient = chef.requireIngredient();
+        Optional<KitchenHelper> helperWithIngredient = getHelperWithIngredient(ingredient);
+        if (helperWithIngredient.isPresent()){
+            Integer amount = helperWithIngredient.get().getIngredients().get(ingredient);
+            getIngredientAndCook(ingredient, helperWithIngredient.get(), amount);
+        } else {
+            kitchenHelpers.forEach(KitchenHelper::allOutYelling);
+            chef.shoutDownTheKitchen();
+        }
+    }
+
+    private Optional<KitchenHelper> getHelperWithIngredient(Ingredient ingredient) {
         for (KitchenHelper helper : kitchenHelpers) {
-            Integer quantity = helper.checkQuantityOfIngredient(ingredient);
+            Integer quantity = helper.checkAmountOfIngredient(ingredient);
             if (quantity > 0) {
-                return helper;
+                return Optional.of(helper);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
-    private void getIngredientAndCook(Ingredient ingredient, KitchenHelper helperWithIngredient) {
-        helperWithIngredient.giveIngredient(ingredient);
-        System.out.println("Kitchen helper " + helperWithIngredient.getName() + ": Here is " + ingredient.name() + ", Chef.\n");
+    private void getIngredientAndCook(Ingredient ingredient, KitchenHelper helperWithIngredient, int amount) {
+        helperWithIngredient.giveIngredient(ingredient, amount);
         chef.cooking();
         chef.asking();
         for (Cook cook : cooks) {
-            cook.shooting();
-            cook.cooking();
+            if (cook.isHasKnife()) {
+                cook.shouting();
+                cook.cooking();
+            } else {
+                cook.shoutThatCantCook();
+            }
         }
-        chef.shooting();
+        chef.shouting();
     }
 }

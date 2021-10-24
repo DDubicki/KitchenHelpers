@@ -14,4 +14,8 @@ public class RandomHelper {
         return INSTANCE.nextInt(upperBound - lowerBound + 1) + lowerBound;
     }
 
+    public static boolean getRandomBoolean() {
+        return INSTANCE.nextBoolean();
+    }
+
 }

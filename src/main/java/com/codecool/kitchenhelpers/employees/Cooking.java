@@ -4,5 +4,7 @@ interface Cooking {
 
     void cooking();
 
-    void shooting();
+    void shouting();
+
+    void shoutThatCantCook();
 }
