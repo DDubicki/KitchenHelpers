@@ -8,10 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class KitchenHelper extends Employee {
-    public Map<Ingredient, Integer> getIngredients() {
-        return ingredients;
-    }
-
     private final Map<Ingredient, Integer> ingredients;
 
     public KitchenHelper(String name, LocalDate birthDate, double salary) {
@@ -33,5 +29,9 @@ public class KitchenHelper extends Employee {
 
     public Integer checkAmountOfIngredient(Ingredient ingredient) {
         return ingredients.getOrDefault(ingredient, 0);
+    }
+
+    public Map<Ingredient, Integer> getIngredients() {
+        return ingredients;
     }
 }
