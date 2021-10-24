@@ -24,7 +24,7 @@ public class Chef extends Employee implements Cooking {
 
     @Override
     public void shoutThatCantCook() {
-        System.out.println(getName() + ": Today without me, I don't have knives.\n");
+        System.out.println(getName() + ": I don't have knives.\n");
     }
 
     public Ingredient requireIngredient() {
@@ -35,5 +35,9 @@ public class Chef extends Employee implements Cooking {
 
     public void asking() {
         System.out.println(getName() + ": Am I the only one who work here?\n");
+    }
+
+    public void shoutDownTheKitchen() {
+        System.out.println(getName() + ": I shut down the kitchen");
     }
 }
