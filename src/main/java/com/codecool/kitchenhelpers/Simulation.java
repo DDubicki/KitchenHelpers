@@ -1,5 +1,7 @@
 package com.codecool.kitchenhelpers;
 
+import com.codecool.kitchenhelpers.employees.HRDepartment;
+
 import java.util.Scanner;
 
 public class Simulation {
@@ -9,7 +11,8 @@ public class Simulation {
     private final Kitchen kitchen;
 
     public Simulation() {
-        kitchen = new Kitchen(COOKS_NUMBER, HELPERS_NUMBER);
+        HRDepartment hrDepartment = new HRDepartment(COOKS_NUMBER, HELPERS_NUMBER);
+        kitchen = new Kitchen(hrDepartment.getChef(), hrDepartment.getCooks(), hrDepartment.getKitchenHelpers());
     }
 
     public void runKitchen(){
